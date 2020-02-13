@@ -21,27 +21,30 @@ class MainActivity : Activity() /*, BottomNavigationView.OnNavigationItemSelecte
 
         val bottomNavigation = findViewById<BottomNavigationView>(R.id.tab)
         val upperView = findViewById<FrameLayout>(R.id.tab_frame)
+        upperView.startViewTransition(View.inflate(this, R.layout.layout_tab_home, upperView))
 
         Log.d("@@@ TAB: ", "BEFORE TAB")
 
         bottomNavigation.setOnNavigationItemSelectedListener {
-            Log.d("@@@ TAB: ", "HI")
-            var selected: Fragment
+            upperView.removeAllViews()
+
+            var selected: Int
+
             when (it.itemId) {
                 R.id.tab_map -> {
-                    selected = Map()
+                    selected = R.layout.layout_tab_map
                     Log.d("@@@ TAB: ", "SELECTED MAP")
                     true }
                 R.id.tab_setting -> {
-                    selected = Setting()
+                    selected = R.layout.layout_tab_setting
                     true }
                 else -> {
-                    selected = Home()
+                    selected = R.layout.layout_tab_home
                     true
                 }
             }
 
-            var setMe : View = View.inflate(this, R.layout.layout_tab_map, upperView)
+            var setMe : View = View.inflate(this, selected, upperView)
             upperView.startViewTransition(setMe)
             true
         }

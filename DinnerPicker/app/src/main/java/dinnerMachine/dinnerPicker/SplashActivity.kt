@@ -9,6 +9,9 @@ class SplashActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
     }
 
     inner class sleep(val theAct : Activity) : Thread() {
