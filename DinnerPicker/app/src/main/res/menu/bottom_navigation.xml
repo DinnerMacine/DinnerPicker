@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="56px"
+    android:layout_width="match_parent">
+
+    <item
+        android:id="@+id/tab_home"
+        android:enabled="true"
+        android:icon="@drawable/ic_tab_home_gray"
+        android:title="홈"/>
+
+    <item
+        android:id="@+id/tab_map"
+        android:enabled="true"
+        android:icon="@drawable/ic_tab_map_gray"
+        android:title="지도"/>
+
+    <item
+        android:id="@+id/tab_setting"
+        android:enabled="true"
+        android:icon="@drawable/ic_tab_setting_gray"
+        android:title=""/>
+</menu>
