@@ -16,14 +16,11 @@ class MainActivity : Activity() /*, BottomNavigationView.OnNavigationItemSelecte
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d("@@@", " MAIN")
         setContentView(R.layout.activity_main)
 
         val bottomNavigation = findViewById<BottomNavigationView>(R.id.tab)
         val upperView = findViewById<FrameLayout>(R.id.tab_frame)
         upperView.startViewTransition(View.inflate(this, R.layout.layout_tab_home, upperView))
-
-        Log.d("@@@ TAB: ", "BEFORE TAB")
 
         bottomNavigation.setOnNavigationItemSelectedListener {
             upperView.removeAllViews()
@@ -33,7 +30,6 @@ class MainActivity : Activity() /*, BottomNavigationView.OnNavigationItemSelecte
             when (it.itemId) {
                 R.id.tab_map -> {
                     selected = R.layout.layout_tab_map
-                    Log.d("@@@ TAB: ", "SELECTED MAP")
                     true }
                 R.id.tab_setting -> {
                     selected = R.layout.layout_tab_setting
