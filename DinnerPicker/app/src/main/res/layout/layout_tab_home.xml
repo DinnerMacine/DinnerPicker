@@ -1,14 +1,220 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#EDE5D1"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tmp_home"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/home_part1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginVertical="100dp"
-        android:textSize="32dp"
-        android:text="HOME" />
-</LinearLayout>
+        app:layout_constraintVertical_bias="0.1"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:id="@+id/home_soliloquy_배고파"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10dp"
+            android:text="배고파"
+            android:layout_marginBottom="1mm"
+            app:layout_constraintHorizontal_bias="0.55"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/home_soliloquy_저녁_모먹"/>
+
+        <TextView
+            android:id="@+id/home_soliloquy_저녁_모먹"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10dp"
+            android:text="저녁 뭐 먹지"
+            android:layout_marginBottom="1mm"
+            app:layout_constraintHorizontal_bias="0.35"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/home_soliloquy_배고파"
+            app:layout_constraintBottom_toTopOf="@id/home_soliloquy_어캐_고름"/>
+
+        <TextView
+            android:id="@+id/home_soliloquy_어캐_고름"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10dp"
+            android:text="뭐 먹을지 어떻게 고르지"
+            app:layout_constraintHorizontal_bias="0.7"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/home_soliloquy_저녁_모먹"
+            app:layout_constraintBottom_toTopOf="@id/home_mini_bob"/>
+
+        <ImageView
+            android:id="@+id/home_mini_bob"
+            android:src="@drawable/ic_bob_mini"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/home_soliloquy_어캐_고름"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/home_part2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/round_rectangle"
+        app:layout_constraintWidth_percent="0.8"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/home_part1">
+
+        <ImageButton
+            android:id="@+id/home_button_random"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:contentDescription="완전 랜덤"
+            android:src="@drawable/ic_home_random"
+            android:backgroundTint="#ffffff"
+            android:scaleType="fitCenter"
+            app:layout_constraintWidth_percent="0.45"
+            app:layout_constraintHeight_percent="0.25"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/home_button_keyword"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/home_button_thrilling"/>
+
+        <TextView
+            android:id="@+id/home_text_random"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="완전 랜덤"
+            app:layout_constraintTop_toBottomOf="@id/home_button_random"
+            app:layout_constraintLeft_toLeftOf="@id/home_button_random"
+            app:layout_constraintRight_toRightOf="@id/home_button_random"/>
+
+        <ImageButton
+            android:id="@+id/home_button_keyword"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:contentDescription="키워드"
+            android:src="@drawable/ic_home_keyword"
+            android:backgroundTint="#ffffff"
+            android:scaleType="fitCenter"
+            app:layout_constraintWidth_percent="0.45"
+            app:layout_constraintHeight_percent="0.25"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/home_button_random"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/home_button_star"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="키워드"
+            app:layout_constraintTop_toBottomOf="@id/home_button_keyword"
+            app:layout_constraintRight_toRightOf="@id/home_button_keyword"
+            app:layout_constraintLeft_toLeftOf="@id/home_button_keyword"/>
+
+        <ImageButton
+            android:id="@+id/home_button_thrilling"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:contentDescription="짜릿해"
+            android:src="@drawable/ic_home_thrilling"
+            android:backgroundTint="#ffffff"
+            android:scaleType="fitCenter"
+            app:layout_constraintWidth_percent="0.45"
+            app:layout_constraintHeight_percent="0.25"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/home_button_keyword"
+            app:layout_constraintTop_toBottomOf="@id/home_button_random"
+            app:layout_constraintBottom_toTopOf="@id/home_button_chicken"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="짜릿해"
+            app:layout_constraintTop_toBottomOf="@id/home_button_thrilling"
+            app:layout_constraintRight_toRightOf="@id/home_button_thrilling"
+            app:layout_constraintLeft_toLeftOf="@id/home_button_thrilling"/>
+
+        <ImageButton
+            android:id="@+id/home_button_star"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:contentDescription="즐겨찾기"
+            android:src="@drawable/ic_home_star"
+            android:backgroundTint="#ffffff"
+            android:scaleType="fitCenter"
+            app:layout_constraintWidth_percent="0.45"
+            app:layout_constraintHeight_percent="0.25"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/home_button_random"
+            app:layout_constraintTop_toBottomOf="@id/home_button_keyword"
+            app:layout_constraintBottom_toTopOf="@id/home_button_while"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="즐겨찾기"
+            app:layout_constraintTop_toBottomOf="@id/home_button_star"
+            app:layout_constraintRight_toRightOf="@id/home_button_star"
+            app:layout_constraintLeft_toLeftOf="@id/home_button_star"/>
+
+        <ImageButton
+            android:id="@+id/home_button_chicken"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:contentDescription="치킨"
+            android:src="@drawable/ic_home_chicken"
+            android:backgroundTint="#ffffff"
+            android:scaleType="fitCenter"
+            app:layout_constraintWidth_percent="0.45"
+            app:layout_constraintHeight_percent="0.25"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/home_button_keyword"
+            app:layout_constraintTop_toBottomOf="@id/home_button_thrilling"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="치킨"
+            app:layout_constraintTop_toBottomOf="@id/home_button_chicken"
+            app:layout_constraintRight_toRightOf="@id/home_button_chicken"
+            app:layout_constraintLeft_toLeftOf="@id/home_button_chicken"/>
+
+        <ImageButton
+            android:id="@+id/home_button_while"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:contentDescription="답정너"
+            android:src="@drawable/ic_home_while"
+            android:backgroundTint="#ffffff"
+            android:scaleType="fitCenter"
+            app:layout_constraintWidth_percent="0.45"
+            app:layout_constraintHeight_percent="0.25"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/home_button_random"
+            app:layout_constraintTop_toBottomOf="@id/home_button_star"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="답정너"
+            app:layout_constraintTop_toBottomOf="@id/home_button_while"
+            app:layout_constraintRight_toRightOf="@id/home_button_while"
+            app:layout_constraintLeft_toLeftOf="@id/home_button_while"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
