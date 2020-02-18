@@ -1,19 +1,30 @@
 package dinnerMachine.dinnerPicker
 
-import android.app.ActionBar
-import android.app.Activity
+import android.Manifest
 import android.os.Bundle
-import android.util.Log
-import android.view.MenuItem
 import android.view.View
 import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.*
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
+import com.fondesa.kpermissions.extension.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import kotlinx.android.synthetic.main.activity_main.view.*
+import dinnerMachine.dinnerPicker.Map as Map
+import dinnerMachine.dinnerPicker.Home as Home
+import dinnerMachine.dinnerPicker.Setting as Setting
 
-class MainActivity : Activity() /*, BottomNavigationView.OnNavigationItemSelectedListener  */{
 
+class MainActivity : AppCompatActivity() /*, BottomNavigationView.OnNavigationItemSelectedListener  */{
+    lateinit var ft: FragmentTransaction
+    fun changeFragment(f:Fragment, cleanStack:Boolean=false){
+        //         val ft = View = View.inflate(this, )
+        ft = supportFragmentManager.beginTransaction()
+        ft.replace(R.id.tab_frame,f)
+        ft.addToBackStack(null)
+        ft.commit()
+
+        true
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -25,25 +36,33 @@ class MainActivity : Activity() /*, BottomNavigationView.OnNavigationItemSelecte
         bottomNavigation.setOnNavigationItemSelectedListener {
             upperView.removeAllViews()
 
-            var selected: Int
+            var selected: Fragment
 
             when (it.itemId) {
                 R.id.tab_map -> {
-                    selected = R.layout.layout_tab_map
+                    selected = Map()
                     true }
                 R.id.tab_setting -> {
-                    selected = R.layout.layout_tab_setting
+                    selected = Setting()
                     true }
                 else -> {
-                    selected = R.layout.layout_tab_home
+                    selected = Home()
                     true
                 }
             }
+            if(selected != null){
+                changeFragment(selected)
+            }
 
+            true
+            /*
             var setMe : View = View.inflate(this, selected, upperView)
             upperView.startViewTransition(setMe)
             true
+
+*/
         }
+
 
     }
 
