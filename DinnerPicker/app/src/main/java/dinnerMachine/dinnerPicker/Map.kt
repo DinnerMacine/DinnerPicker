@@ -1,5 +1,6 @@
 package dinnerMachine.dinnerPicker
 
+import android.app.Service
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -16,6 +17,7 @@ import com.google.android.gms.maps.model.MarkerOptions
 
 class Map : Fragment(), OnMapReadyCallback {
     lateinit var mapView: MapView
+
   override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

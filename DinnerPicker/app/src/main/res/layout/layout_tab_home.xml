@@ -79,13 +79,10 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/home_button_random"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             app:layout_constraintWidth_percent="0.5"
-            app:layout_constraintHeight_percent="0.3"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@id/home_button_keyword"
-            app:layout_constraintBottom_toTopOf="@id/home_button_thrilling"
             >
 
             <ImageButton
@@ -119,13 +116,10 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/home_button_keyword"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             app:layout_constraintWidth_percent="0.5"
-            app:layout_constraintHeight_percent="0.3"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/home_button_random"
-            app:layout_constraintBottom_toTopOf="@id/home_button_star"
             >
 
             <ImageButton
@@ -156,13 +150,10 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/home_button_thrilling"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             app:layout_constraintWidth_percent="0.5"
-            app:layout_constraintHeight_percent="0.3"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@id/home_button_keyword"
             app:layout_constraintTop_toBottomOf="@id/home_button_random"
-            app:layout_constraintBottom_toTopOf="@id/home_button_chicken"
             >
 
             <ImageButton
@@ -194,12 +185,10 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/home_button_star"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             app:layout_constraintWidth_percent="0.5"
-            app:layout_constraintHeight_percent="0.3"
-            app:layout_constraintLeft_toRightOf="@id/home_button_random"
+            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/home_button_keyword"
-            app:layout_constraintBottom_toTopOf="@id/home_button_while"
             >
 
             <ImageButton
@@ -232,13 +221,10 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/home_button_chicken"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             app:layout_constraintWidth_percent="0.5"
-            app:layout_constraintHeight_percent="0.3"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@id/home_button_keyword"
             app:layout_constraintTop_toBottomOf="@id/home_button_thrilling"
-            app:layout_constraintBottom_toBottomOf="parent"
             >
 
             <ImageButton
@@ -270,13 +256,10 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/home_button_while"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             app:layout_constraintWidth_percent="0.5"
-            app:layout_constraintHeight_percent="0.3"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/home_button_random"
             app:layout_constraintTop_toBottomOf="@id/home_button_star"
-            app:layout_constraintBottom_toBottomOf="parent"
             >
 
             <ImageButton
