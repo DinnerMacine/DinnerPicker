@@ -2,19 +2,27 @@ package dinnerMachine.dinnerPicker
 
 import android.Manifest
 import android.content.pm.PackageManager
+import android.location.Address
+import android.location.Geocoder
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.FrameLayout
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import dinnerMachine.dinnerPicker.Map as Map
-import dinnerMachine.dinnerPicker.Home as Home
-import dinnerMachine.dinnerPicker.Setting as Setting
+import dinnerMachine.dinnerPicker.Home
+import dinnerMachine.dinnerPicker.Map
+import dinnerMachine.dinnerPicker.Setting
+import java.io.IOException
+import java.security.AccessController.getContext
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class MainActivity : AppCompatActivity() /*, BottomNavigationView.OnNavigationItemSelectedListener  */{
@@ -42,6 +50,9 @@ class MainActivity : AppCompatActivity() /*, BottomNavigationView.OnNavigationIt
             val array = arrayOfNulls<String>(rejectedPermissionList.size)
             ActivityCompat.requestPermissions(this,rejectedPermissionList.toArray(array),multiplePermissionsCode)
         }
+        else{
+            isPermissions = true
+        }
     }
 
     fun changeFragment(f:Fragment, cleanStack:Boolean=false){
@@ -62,15 +73,43 @@ class MainActivity : AppCompatActivity() /*, BottomNavigationView.OnNavigationIt
         val bottomNavigation = findViewById<BottomNavigationView>(R.id.tab)
         val upperView = findViewById<FrameLayout>(R.id.tab_frame)
         upperView.startViewTransition(View.inflate(this, R.layout.layout_tab_home, upperView))
+        upperView.setOnClickListener(View.OnClickListener(){
 
-       /* upperView.setOnClickListener(View.OnClickListener(){
-            if(!isPermissions){
-                callPermission()
-                return
-            }
-            locaInfo = LocationInfo(context)
+           fun onClick(view:View){
+               if(!isPermissions){
+                   checkPermissions()
+                   return
+               }
+               locaInfo = LocationInfo(this)
+               if(locaInfo.isGetLocation){
+                   var latitude = locaInfo.getLat()
+                   var longitude = locaInfo.getLon()
+
+                   var gCoder = Geocoder(this, Locale.getDefault())
+                   var addr: List<Address>? = null
+                   try{
+                       addr = gCoder.getFromLocation(latitude,longitude,1)
+                       var a = addr.get(0)
+
+
+
+                       for(i in 0  .. a.getMaxAddressLineIndex()){
+                           Log.v("알림","AddressLine("+i+")"+a.getAddressLine(i)+"\n")
+                       }
+                   }catch(e: IOException){
+                       e.printStackTrace()
+                   }
+                   if(addr != null){
+                       if(addr.size==0){
+                           Toast.makeText(this,"주소정보 없음",Toast.LENGTH_LONG).show()
+                       }
+                   }
+               } else{
+                   locaInfo.showSettingsAlert()
+               }
+           }
         })
-*/
+
         checkPermissions()
         bottomNavigation.setOnNavigationItemSelectedListener {
             upperView.removeAllViews()
@@ -111,6 +150,7 @@ class MainActivity : AppCompatActivity() /*, BottomNavigationView.OnNavigationIt
         grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        isPermissions = true
         when(requestCode){
             multiplePermissionsCode ->{
                 if(grantResults.isNotEmpty()){
@@ -121,12 +161,10 @@ class MainActivity : AppCompatActivity() /*, BottomNavigationView.OnNavigationIt
                         else{
                             isPermission[i] = true
                         }
+                        isPermissions = isPermission[i] || isPermissions
                     }
                 }
             }
         }
     }
-
-
-
 }

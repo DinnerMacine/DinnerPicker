@@ -161,23 +161,24 @@ class LocationInfo() : Service(), LocationListener, Parcelable {
         //.
     }
     override fun onProviderDisabled(provider: String?) {
+
         //
     }
 
 
-    fun makeDialog(){
-        var alt_bld = AlertDialog.Builder(mContext, R.style.MyAlertDialogStyle)
-        alt_bld.setMessage("사용자의 위치정보를 얻어오기 위해 GPS사용이 필요합니다.\n 설정창으로 가시겠습니까?").setCancelable(false)
+    private fun makeDialog(){
+        var alertBuilder = AlertDialog.Builder(mContext, R.style.MyAlertDialogStyle)
+        alertBuilder.setMessage("사용자의 위치정보를 얻어오기 위해 GPS사용이 필요합니다.\n 설정창으로 가시겠습니까?").setCancelable(false)
             .setPositiveButton("네", DialogInterface.OnClickListener(){ dialogInterface: DialogInterface, i: Int ->
                     var intent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
                     mContext.startActivity(intent)
             }).setNegativeButton("아니요", DialogInterface.OnClickListener(){ dialog: DialogInterface, id: Int ->
                 dialog.cancel()
             })
-        var alert = alt_bld.create()
+        var alert = alertBuilder.create()
         alert.setIcon(R.drawable.ic_bob_mini)
         alert.setTitle("'저녁 뭐먹지?'가 GPS 사용 허가를 바랍니다!")
-        //alert.getWindow().setBackgroundDrawable(ColorDrawable(Color.argb(255,62,79,92)))
+        alert.window?.setBackgroundDrawable(ColorDrawable(Color.argb(255,62,79,92)))
         alert.show()
     }
 

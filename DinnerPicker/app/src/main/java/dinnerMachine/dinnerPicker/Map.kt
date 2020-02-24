@@ -17,7 +17,10 @@ import com.google.android.gms.maps.model.MarkerOptions
 
 class Map : Fragment(), OnMapReadyCallback {
     lateinit var mapView: MapView
+    lateinit var locaInfo : LocationInfo
 
+    var lat = 37.563826
+    var lon = 127.041951
   override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -27,6 +30,12 @@ class Map : Fragment(), OnMapReadyCallback {
         val view = inflater.inflate(R.layout.layout_tab_map, container, false)
         mapView = view.findViewById(R.id.map)
         mapView.getMapAsync(this)
+
+        locaInfo = this.context?.let { LocationInfo(it) }!!
+        if(locaInfo.isGetLocation){
+            lat = locaInfo.getLat()
+            lon = locaInfo.getLon()
+        }
 
         Log.v("onCreateView", "CreateView")
         return view
@@ -86,11 +95,11 @@ class Map : Fragment(), OnMapReadyCallback {
 
     override fun onMapReady(p0: GoogleMap?) {
         Log.v("됐나?", "됐다면 출력해 주세요!")
-        val seoul = LatLng(37.563826, 127.041951)
+        val seoul = LatLng(lat, lon)
         val marker = MarkerOptions()
             .position(seoul)
-            .title("잉쟁이의 집")
-            .snippet("열려라 잉! 하고 소리치면 열립니다... 아마...?")
+            .title("현재위치")
+            .snippet("해치웠나!?")
         p0!!.addMarker(marker)
         p0!!.moveCamera(CameraUpdateFactory.newLatLng(seoul))
         p0!!.animateCamera(CameraUpdateFactory.zoomTo(12f))
