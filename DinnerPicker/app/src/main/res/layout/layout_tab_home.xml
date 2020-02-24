@@ -76,144 +76,234 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/home_part1">
 
-        <ImageButton
-            android:id="@+id/home_button_random"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:contentDescription="완전 랜덤"
-            android:src="@drawable/ic_home_random"
-            android:backgroundTint="#ffffff"
-            android:scaleType="fitCenter"
-            app:layout_constraintWidth_percent="0.45"
-            app:layout_constraintHeight_percent="0.25"
+            app:layout_constraintWidth_percent="0.5"
+            app:layout_constraintHeight_percent="0.3"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@id/home_button_keyword"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/home_button_thrilling"/>
+            app:layout_constraintBottom_toTopOf="@id/home_button_thrilling"
+            >
 
-        <TextView
-            android:id="@+id/home_text_random"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="완전 랜덤"
-            app:layout_constraintTop_toBottomOf="@id/home_button_random"
-            app:layout_constraintLeft_toLeftOf="@id/home_button_random"
-            app:layout_constraintRight_toRightOf="@id/home_button_random"/>
+            <ImageButton
+                android:id="@+id/home_button_random_image"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:contentDescription="완전랜덤"
+                android:src="@drawable/ic_home_random"
+                android:scaleType="fitCenter"
+                android:background="@drawable/round_button"
+                android:padding="20dp"
+                app:layout_constraintWidth_percent="0.65"
+                app:layout_constraintDimensionRatio="W, 1:1"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                />
 
-        <ImageButton
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="완전랜덤"
+                app:layout_constraintTop_toBottomOf="@id/home_button_random_image"
+                app:layout_constraintRight_toRightOf="@id/home_button_random_image"
+                app:layout_constraintLeft_toLeftOf="@id/home_button_random_image"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/home_button_keyword"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:contentDescription="키워드"
-            android:src="@drawable/ic_home_keyword"
-            android:backgroundTint="#ffffff"
-            android:scaleType="fitCenter"
-            app:layout_constraintWidth_percent="0.45"
-            app:layout_constraintHeight_percent="0.25"
+            app:layout_constraintWidth_percent="0.5"
+            app:layout_constraintHeight_percent="0.3"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/home_button_random"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/home_button_star"/>
+            app:layout_constraintLeft_toRightOf="@id/home_button_random"
+            app:layout_constraintBottom_toTopOf="@id/home_button_star"
+            >
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="키워드"
-            app:layout_constraintTop_toBottomOf="@id/home_button_keyword"
-            app:layout_constraintRight_toRightOf="@id/home_button_keyword"
-            app:layout_constraintLeft_toLeftOf="@id/home_button_keyword"/>
+            <ImageButton
+                android:id="@+id/home_button_keyword_image"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:contentDescription="키워드"
+                android:src="@drawable/ic_home_keyword"
+                android:scaleType="fitCenter"
+                android:background="@drawable/round_button"
+                android:padding="20dp"
+                app:layout_constraintWidth_percent="0.65"
+                app:layout_constraintDimensionRatio="W, 1:1"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"/>
 
-        <ImageButton
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="키워드"
+                app:layout_constraintTop_toBottomOf="@id/home_button_keyword_image"
+                app:layout_constraintRight_toRightOf="@id/home_button_keyword_image"
+                app:layout_constraintLeft_toLeftOf="@id/home_button_keyword_image"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/home_button_thrilling"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:contentDescription="짜릿해"
-            android:src="@drawable/ic_home_thrilling"
-            android:backgroundTint="#ffffff"
-            android:scaleType="fitCenter"
-            app:layout_constraintWidth_percent="0.45"
-            app:layout_constraintHeight_percent="0.25"
+            app:layout_constraintWidth_percent="0.5"
+            app:layout_constraintHeight_percent="0.3"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@id/home_button_keyword"
             app:layout_constraintTop_toBottomOf="@id/home_button_random"
-            app:layout_constraintBottom_toTopOf="@id/home_button_chicken"/>
+            app:layout_constraintBottom_toTopOf="@id/home_button_chicken"
+            >
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="짜릿해"
-            app:layout_constraintTop_toBottomOf="@id/home_button_thrilling"
-            app:layout_constraintRight_toRightOf="@id/home_button_thrilling"
-            app:layout_constraintLeft_toLeftOf="@id/home_button_thrilling"/>
+            <ImageButton
+                android:id="@+id/home_button_thrilling_image"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:contentDescription="짜릿해"
+                android:src="@drawable/ic_home_thrilling"
+                android:scaleType="fitCenter"
+                android:background="@drawable/round_button"
+                android:padding="20dp"
+                app:layout_constraintWidth_percent="0.65"
+                app:layout_constraintDimensionRatio="W, 1:1"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"/>
 
-        <ImageButton
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="짜릿해"
+                app:layout_constraintTop_toBottomOf="@id/home_button_thrilling_image"
+                app:layout_constraintRight_toRightOf="@id/home_button_thrilling_image"
+                app:layout_constraintLeft_toLeftOf="@id/home_button_thrilling_image"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/home_button_star"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:contentDescription="즐겨찾기"
-            android:src="@drawable/ic_home_star"
-            android:backgroundTint="#ffffff"
-            android:scaleType="fitCenter"
-            app:layout_constraintWidth_percent="0.45"
-            app:layout_constraintHeight_percent="0.25"
-            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintWidth_percent="0.5"
+            app:layout_constraintHeight_percent="0.3"
             app:layout_constraintLeft_toRightOf="@id/home_button_random"
             app:layout_constraintTop_toBottomOf="@id/home_button_keyword"
-            app:layout_constraintBottom_toTopOf="@id/home_button_while"/>
+            app:layout_constraintBottom_toTopOf="@id/home_button_while"
+            >
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="즐겨찾기"
-            app:layout_constraintTop_toBottomOf="@id/home_button_star"
-            app:layout_constraintRight_toRightOf="@id/home_button_star"
-            app:layout_constraintLeft_toLeftOf="@id/home_button_star"/>
+            <ImageButton
+                android:id="@+id/home_button_star_image"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:contentDescription="즐겨찾기"
+                android:src="@drawable/ic_home_star"
+                android:scaleType="fitCenter"
+                android:background="@drawable/round_button"
+                android:padding="20dp"
+                app:layout_constraintWidth_percent="0.65"
+                app:layout_constraintDimensionRatio="W, 1:1"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"/>
 
-        <ImageButton
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="즐겨찾기"
+                app:layout_constraintTop_toBottomOf="@id/home_button_star_image"
+                app:layout_constraintRight_toRightOf="@id/home_button_star_image"
+                app:layout_constraintLeft_toLeftOf="@id/home_button_star_image"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/home_button_chicken"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:contentDescription="치킨"
-            android:src="@drawable/ic_home_chicken"
-            android:backgroundTint="#ffffff"
-            android:scaleType="fitCenter"
-            app:layout_constraintWidth_percent="0.45"
-            app:layout_constraintHeight_percent="0.25"
+            app:layout_constraintWidth_percent="0.5"
+            app:layout_constraintHeight_percent="0.3"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@id/home_button_keyword"
             app:layout_constraintTop_toBottomOf="@id/home_button_thrilling"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+            >
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="치킨"
-            app:layout_constraintTop_toBottomOf="@id/home_button_chicken"
-            app:layout_constraintRight_toRightOf="@id/home_button_chicken"
-            app:layout_constraintLeft_toLeftOf="@id/home_button_chicken"/>
+            <ImageButton
+                android:id="@+id/home_button_chicken_image"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:contentDescription="치킨"
+                android:src="@drawable/ic_home_chicken"
+                android:scaleType="fitCenter"
+                android:background="@drawable/round_button"
+                android:padding="20dp"
+                app:layout_constraintWidth_percent="0.65"
+                app:layout_constraintDimensionRatio="W, 1:1"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"/>
 
-        <ImageButton
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="치킨"
+                app:layout_constraintTop_toBottomOf="@id/home_button_chicken_image"
+                app:layout_constraintRight_toRightOf="@id/home_button_chicken_image"
+                app:layout_constraintLeft_toLeftOf="@id/home_button_chicken_image"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/home_button_while"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:contentDescription="답정너"
-            android:src="@drawable/ic_home_while"
-            android:backgroundTint="#ffffff"
-            android:scaleType="fitCenter"
-            app:layout_constraintWidth_percent="0.45"
-            app:layout_constraintHeight_percent="0.25"
+            app:layout_constraintWidth_percent="0.5"
+            app:layout_constraintHeight_percent="0.3"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintLeft_toRightOf="@id/home_button_random"
             app:layout_constraintTop_toBottomOf="@id/home_button_star"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+            >
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="답정너"
-            app:layout_constraintTop_toBottomOf="@id/home_button_while"
-            app:layout_constraintRight_toRightOf="@id/home_button_while"
-            app:layout_constraintLeft_toLeftOf="@id/home_button_while"/>
+            <ImageButton
+                android:id="@+id/home_button_while_image"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:contentDescription="답정너"
+                android:src="@drawable/ic_home_while"
+                android:scaleType="fitCenter"
+                android:background="@drawable/round_button"
+                app:layout_constraintWidth_percent="0.65"
+                app:layout_constraintDimensionRatio="W, 1:1"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="답정너"
+                app:layout_constraintTop_toBottomOf="@id/home_button_while_image"
+                app:layout_constraintRight_toRightOf="@id/home_button_while_image"
+                app:layout_constraintLeft_toLeftOf="@id/home_button_while_image"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
